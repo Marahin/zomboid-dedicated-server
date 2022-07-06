@@ -22,8 +22,8 @@
 #######################################################################
 
 # Set the User and Group IDs
-ARG USER_ID=1000
-ARG GROUP_ID=1000
+ARG USER_ID=1017
+ARG GROUP_ID=1017
 
 FROM renegademaster/steamcmd-minimal:1.0.0
 ARG USER_ID
@@ -44,7 +44,7 @@ COPY src /home/steam/
 USER 0:0
 RUN apt-get update && apt-get autoremove -y \
     && apt-get install -y --no-install-recommends \
-        python3-minimal \
+    python3-minimal \
     && rm -rf /var/lib/apt/lists/* \
     && chown -R ${USER_ID}:${GROUP_ID} "/home/steam"
 
